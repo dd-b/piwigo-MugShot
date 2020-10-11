@@ -128,21 +128,20 @@ function mugshot_admin_menu( $menu ) {
  */
 function mugshot_files() {
 
-	if(script_basename() != 'admin') {
+    if(script_basename() != 'admin') {
+        global $template;
 
-		global $template;
-
-    if(MUGSHOT_USER_ADMIN) {
-      $style_path = 'plugins/MugShot/css/admin_style.css';
-      $script_path = 'plugins/MugShot/js/admin_mug.js';
-    } else {
-      $style_path = 'plugins/MugShot/css/style.css';
-      $script_path = 'plugins/MugShot/js/mug.js';
-    }
-
-		$template -> func_combine_css(array('id' => 'customMugCss', 'path' => $style_path));
-    $template -> func_combine_script(  array('id' => 'customMugJs', 'path' => $script_path, 'load' => 'async'));
+	if(MUGSHOT_USER_ADMIN) {
+	  $style_path = 'plugins/MugShot/css/admin_style.css';
+	  $script_path = 'plugins/MugShot/js/admin_mug.js';
+	} else {
+	  $style_path = 'plugins/MugShot/css/style.css';
+	  $script_path = 'plugins/MugShot/js/mug.js';
 	}
+
+	$template -> func_combine_css(array('id' => 'customMugCss', 'path' => $style_path));
+	$template -> func_combine_script(  array('id' => 'customMugJs', 'path' => $script_path, 'load' => 'async'));
+    }
 }
 
 
