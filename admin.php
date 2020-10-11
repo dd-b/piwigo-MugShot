@@ -41,7 +41,7 @@ $tabs = array(
 	),
 );
 
-$tab_codes = array_map(create_function('$a', 'return $a["code"];'), $tabs);
+$tab_codes = array_map (function($a) { return $a["code"]; }, $tabs);
 
 if (isset($_GET['tab']) && in_array($_GET['tab'], $tab_codes)) {
 	$page['tab'] = $_GET['tab'];
