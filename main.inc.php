@@ -34,7 +34,6 @@ add_event_handler('init', 'mugshot_lang_init');
 add_event_handler('loc_begin_page_header', 'mugshot_files', 40, 2);
 add_event_handler('loc_end_picture', 'mugshot_button');
 
-
 /*
  * Conditional Logic for groups
  */
@@ -42,7 +41,11 @@ $current_user_groups = query_mugshot_groups();
 if ($current_user_groups != 0) {
   $plugin_config = unserialize(conf_get_param(MUGSHOT_ID));
   $group_list = $plugin_config['groups'];
-  $intersect = array_intersect((array)$group_list, $current_user_groups);
+// From github cccraig/MugShot commit f12b1a40a4e0f20968dcbfb20b39e28217e7a34c
+  $intersect = [];
+  if (is_array ($group_list)) {
+      $intersect = array_intersect ($group_list, $current_user_groups);
+  }
 }
 
 if (is_array($current_user_groups) && count($intersect) != 0) {
