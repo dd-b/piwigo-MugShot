@@ -162,7 +162,7 @@ function query_mugshot_groups() {
 
   $res = fetch_sql($sql, 'id', false);
 
-  return (count($res) == 0) ? 0 : $res;
+  return empty($res) ? 0 : $res;
 }
 
 
