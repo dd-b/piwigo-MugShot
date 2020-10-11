@@ -1,3 +1,7 @@
+# Another fork
+
+This version is an attempt to produce a version that works again, since the original MugShot was not being updated and the author isn't responding (or has just changed email addresses). 
+
 # MugShot
 
 This is a fork of the [piwigo-facetag plugin](https://github.com/pommes-frites/piwigo-facetag) and adds a bit more functionality. The code base has been rewritten using an object literal class style and includes some new features. Please note that it is not compatible with the original.
